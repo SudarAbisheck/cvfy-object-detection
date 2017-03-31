@@ -9,7 +9,7 @@ This repo contains the code for Object Detection Demo using YOLO Algorithm for [
 ### with Docker:
 
 ```sh
-docker run -d -p <YOUR-DESIRED-PORT>:8000 CVFY_TOKEN=<PASTE_TOKEN_HERE> sudarabisheck/object-detection
+docker run -d --net=host --env CVFY_TOKEN=<PASTE_TOKEN_HERE> sudarabisheck/object-detection
 ```
 
 ### without Docker:
@@ -19,5 +19,4 @@ export CVFY_TOKEN=<PASTE_TOKEN_HERE>
 python ./server.py
 ```
 
-- Replace `<YOUR-DESIRED-PORT>` with the port number you choose for the demo at [CVFY](http://cvfy.cloudcv.org/)
 - Replace `<PASTE_TOKEN_HERE>` with the token generated for the demo 

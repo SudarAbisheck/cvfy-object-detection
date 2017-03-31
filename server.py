@@ -69,7 +69,7 @@ if __name__ == '__main__':
     token = os.getenv('CVFY_TOKEN')
     if token is not None:
         tfnet = TFNet(options)
-        app = register('nongh:0.0.0.0:4298671:5001:8000:0.0.0.0')
+        app = register(token)
         app.run()
     else:
         print "\'CVFY_TOKEN\' environment variable not found !!! \n EXITING ...."

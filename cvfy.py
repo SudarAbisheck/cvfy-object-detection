@@ -19,7 +19,7 @@ from tornado.httpserver import HTTPServer
 from tornado.ioloop import IOLoop
 
 CVFY_INJECTION_SUBPATH = '/inject'
-DOCKER_EXPOSE_PORT = 8000
+# DOCKER_EXPOSE_PORT = 8000
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -76,14 +76,14 @@ def override_route(route):
 def override_run(TOKEN):
     def wrapper(*args, **kwargs):
         http_server = HTTPServer(WSGIContainer(app))
-        http_server.listen(DOCKER_EXPOSE_PORT)
-        print ("running on port: {}".format(DOCKER_EXPOSE_PORT))
-        # http_server.listen(int(TOKEN.split(':')[4]))
-        # print ("running on port: {}".format(TOKEN.split(':')[4]))
+        # http_server.listen(DOCKER_EXPOSE_PORT)
+        # print ("running on port: {}".format(DOCKER_EXPOSE_PORT))
+        http_server.listen(int(TOKEN.split(':')[4]))
+        print ("running on port: {}".format(TOKEN.split(':')[4]))
         IOLoop.instance().start()
     return (wrapper)
 
-##################
+################## 
 ## app register ##
 ##################
 
